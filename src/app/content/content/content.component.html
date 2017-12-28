@@ -1,0 +1,50 @@
+<app-view-type (choose)="onTypeChange($event)"></app-view-type>
+
+<dl
+    *ngIf="position"
+    class="position"
+>
+    <dt>Широта </dt> 
+    <dd *ngIf="position.latitude !== null">
+        <span *ngIf="viewType === 'decimal'" class="value">{{ position.latitude | decimal }}</span>
+        <span *ngIf="viewType === 'minutes'" class="value">{{ position.latitude | minutes }}</span>        
+        <span *ngIf="position.latitude > 0">с.ш.</span>
+        <span *ngIf="position.latitude < 0">ю.ш.</span>        
+        <span *ngIf="position.accuracyLatitude !== null" class="accuracy">
+            &plusmn; 
+            <span *ngIf="viewType === 'decimal'">{{ position.accuracyLatitude | decimal }}</span>
+            <span *ngIf="viewType === 'minutes'">{{ position.accuracyLatitude | minutes }}</span>
+        </span>
+    </dd>
+    <dd *ngIf="position.latitude === null" class="value">
+        нет данных
+    </dd>
+
+    <dt>Долгота </dt>
+    <dd *ngIf="position.longitude !== null">
+        <span *ngIf="viewType === 'decimal'" class="value">{{ position.longitude | decimal }}</span>
+        <span *ngIf="viewType === 'minutes'" class="value">{{ position.longitude | minutes }}</span>
+        <span *ngIf="position.latitude > 0">в.д.</span>
+        <span *ngIf="position.latitude < 0">з.д.</span>        
+        <span *ngIf="position.accuracyLongitude !== null" class="accuracy">
+            &plusmn; 
+            <span *ngIf="viewType === 'decimal'">{{ position.accuracyLongitude | decimal }}</span>
+            <span *ngIf="viewType === 'minutes'">{{ position.accuracyLongitude | minutes }}</span>
+        </span>        
+    </dd>
+    <dd *ngIf="position.longitude === null" class="value">
+        нет данных
+    </dd>
+
+    <dt>Высота</dt>
+    <dd *ngIf="position.altitude">
+        <span class="value">{{ position.altitude }}</span>
+        <span>метров</span>
+        <span class="accuracy">&plusmn; {{ position.altitudeAccuracy }}</span>
+    </dd>
+    <dd *ngIf="! position.altitude" class="value">
+        нет данных
+    </dd>    
+</dl>
+
+<app-lang></app-lang>

@@ -1,0 +1,14 @@
+<button
+    (click)="select('decimal')"
+    [ngClass]="{'active': type === 'decimal'}"
+    type="button"
+>
+    0.0000&deg;
+</button>
+<button
+    (click)="select('minutes')"
+    [ngClass]="{'active': type === 'minutes'}"
+    type="button"
+>
+    0&deg;00'00''
+</button>

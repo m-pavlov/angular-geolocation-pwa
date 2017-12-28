@@ -1,0 +1,30 @@
+.position {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 2vh 5vh 2vh;
+    font-size: 4vh;
+    line-height: 5vh;
+    color: #999;
+}
+.position dt {
+    display: block;
+    flex-basis: 45%;
+    margin: 5vh 0;
+    text-align: right;
+}
+.position dd {
+    display: block;
+    flex-basis: 50%;
+    margin: 5vh 0;
+    padding: 0;
+}
+.value {
+    color: #000;
+}
+.accuracy {
+    display: block;
+    margin-top: .5vh;
+    font-size: 70%;
+    line-height: 1;
+}

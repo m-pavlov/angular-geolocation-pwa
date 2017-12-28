@@ -1,0 +1,8 @@
+<button
+    *ngFor="let lang of langs"
+    (click)="select(lang)"
+    [ngClass]="{'active': activeLang === lang}"
+    type="button"
+>
+    {{ lang }}
+</button>
