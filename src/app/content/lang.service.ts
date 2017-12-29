@@ -36,6 +36,6 @@ export class LangService {
 
   private loadTranslation(locale: string) {
     return this.http
-      .get(`/assets/locale/${locale}.json`)
+      .get(`assets/locale/${locale}.json`)
   }
 }

@@ -23,8 +23,7 @@ export class DataService {
   private success(data: Position) {
 
     this.location$
-      // .next( this.setAccuracy( data.coords ) );
-      .next(this.setAccuracy( this.fakeData() ) );
+      .next( this.setAccuracy( data.coords ) );
     this.errors$
       .next('');
   }
@@ -51,15 +50,4 @@ export class DataService {
     return value / 111000;
   }
 
-  fakeData() {
-    return {
-      accuracy: 2216,
-      altitude: 1350,
-      altitudeAccuracy: 43,
-      heading: null,
-      latitude: 55.432592299999996,
-      longitude: 65.34728559999999,
-      speed:null      
-    }
-  }
 }
