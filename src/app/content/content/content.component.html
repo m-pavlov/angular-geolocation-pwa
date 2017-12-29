@@ -49,9 +49,10 @@
     <dd *ngIf="position.altitude">
         <span class="value">{{ position.altitude }}</span>
         <span>{{ "meters" | lang: currentLang }}</span>
-        <span class="accuracy">&plusmn; {{ position.altitudeAccuracy }}</span>
-        a - {{ position.altitude }} <br>
-        b - {{ position.altitudeAccuracy }}
+        <span  *ngIf="position.accuracyLongitude !== null" class="accuracy">
+            &plusmn; 
+            {{ position.altitudeAccuracy }}
+        </span>
     </dd>
     <dd *ngIf="! position.altitude" class="value">
         {{ "not available" | lang: currentLang }}
