@@ -1,49 +1,58 @@
+<div class="title">
+    {{ "My coordinates" | lang: currentLang }}
+</div>
 <app-view-type (choose)="onTypeChange($event)"></app-view-type>
 
+<div *ngIf="errorType || ! position" class="errors">
+    <div *ngIf="errorType === 'not-available'">{{ "Sorry, geolocation is not available on your device" | lang: currentLang }}</div>    
+    <div *ngIf="errorType === 'failed'">{{ "Sorry, we can't get your geolocation" | lang: currentLang }}</div>    
+    <div *ngIf="errorType === 'permission'">{{ "Please, allow the browser to know your location" | lang: currentLang }}</div>
+</div>
+
 <dl
-    *ngIf="position"
+    *ngIf="position && ! errorType"
     class="position"
 >
-    <dt>Широта </dt> 
+    <dt>{{ "Latitude" | lang: currentLang }}</dt> 
     <dd *ngIf="position.latitude !== null">
         <span *ngIf="viewType === 'decimal'" class="value">{{ position.latitude | decimal }}</span>
         <span *ngIf="viewType === 'minutes'" class="value">{{ position.latitude | minutes }}</span>        
-        <span *ngIf="position.latitude > 0">с.ш.</span>
-        <span *ngIf="position.latitude < 0">ю.ш.</span>        
+        <ng-container *ngIf="position.latitude > 0">{{ "N" | lang: currentLang }}</ng-container>
+        <ng-container *ngIf="position.latitude < 0">{{ "S" | lang: currentLang }}</ng-container>        
         <span *ngIf="position.accuracyLatitude !== null" class="accuracy">
             &plusmn; 
-            <span *ngIf="viewType === 'decimal'">{{ position.accuracyLatitude | decimal }}</span>
-            <span *ngIf="viewType === 'minutes'">{{ position.accuracyLatitude | minutes }}</span>
+            <ng-container *ngIf="viewType === 'decimal'">{{ position.accuracyLatitude | decimal }}</ng-container>
+            <ng-container *ngIf="viewType === 'minutes'">{{ position.accuracyLatitude | minutes }}</ng-container>
         </span>
     </dd>
     <dd *ngIf="position.latitude === null" class="value">
-        нет данных
+        {{ "not available" | lang: currentLang }}
     </dd>
 
-    <dt>Долгота </dt>
+    <dt>{{ "Longitude" | lang: currentLang }}</dt>
     <dd *ngIf="position.longitude !== null">
         <span *ngIf="viewType === 'decimal'" class="value">{{ position.longitude | decimal }}</span>
         <span *ngIf="viewType === 'minutes'" class="value">{{ position.longitude | minutes }}</span>
-        <span *ngIf="position.latitude > 0">в.д.</span>
-        <span *ngIf="position.latitude < 0">з.д.</span>        
+        <ng-container *ngIf="position.latitude > 0">{{ "E" | lang: currentLang }}</ng-container>
+        <ng-container *ngIf="position.latitude < 0">{{ "W" | lang: currentLang }}</ng-container>        
         <span *ngIf="position.accuracyLongitude !== null" class="accuracy">
             &plusmn; 
-            <span *ngIf="viewType === 'decimal'">{{ position.accuracyLongitude | decimal }}</span>
-            <span *ngIf="viewType === 'minutes'">{{ position.accuracyLongitude | minutes }}</span>
+            <ng-container *ngIf="viewType === 'decimal'">{{ position.accuracyLongitude | decimal }}</ng-container>
+            <ng-container *ngIf="viewType === 'minutes'">{{ position.accuracyLongitude | minutes }}</ng-container>
         </span>        
     </dd>
     <dd *ngIf="position.longitude === null" class="value">
-        нет данных
+        {{ "not available" | lang: currentLang }}
     </dd>
 
-    <dt>Высота</dt>
+    <dt>{{ "Altitude" | lang: currentLang }}</dt>
     <dd *ngIf="position.altitude">
         <span class="value">{{ position.altitude }}</span>
-        <span>метров</span>
+        <ng-container>{{ "meters" | lang: currentLang }}</ng-container>
         <span class="accuracy">&plusmn; {{ position.altitudeAccuracy }}</span>
     </dd>
     <dd *ngIf="! position.altitude" class="value">
-        нет данных
+        {{ "not available" | lang: currentLang }}
     </dd>    
 </dl>
 

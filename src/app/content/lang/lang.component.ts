@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { LangService } from '../lang.service';
 
 @Component({
   selector: 'app-lang',
@@ -6,16 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lang.component.css']
 })
 export class LangComponent implements OnInit {
-  langs: string[] = ['en', 'ru', 'es', 'de', 'fr'];
+  langs: string[] = this.langService.getAvailableTranslations();
   activeLang: string = this.langs[0];
 
-  constructor() { }
+  constructor(
+    private langService: LangService
+  ) { }
 
   ngOnInit() {
+    this.emit();
   }
 
   select(lang: string){
     this.activeLang = lang;
+    this.emit();
+  }
+
+  emit() {
+    this.langService.setTranslation(this.activeLang);
   }
 
 }

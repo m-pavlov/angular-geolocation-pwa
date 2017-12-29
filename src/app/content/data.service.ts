@@ -13,7 +13,7 @@ export class DataService {
 
   getLocation(){
     if ( ! navigator.geolocation ) {
-      this.errors$.next('Geolocation is not available on your device');
+      this.errors$.next('not-available');
     }
 
     navigator.geolocation
@@ -23,15 +23,17 @@ export class DataService {
   private success(data: Position) {
 
     this.location$
-      // .next(data.coords);
+      // .next( this.setAccuracy( data.coords ) );
       .next(this.setAccuracy( this.fakeData() ) );
     this.errors$
       .next('');
   }
 
-  private failed() {
+  private failed(e) {
     this.errors$
-      .next('Geolocation failed');    
+      .next(e.code === 1 ? 'permission' : 'failed');    
+    this.location$
+      .next(null)
   }
 
   private setAccuracy(data: Coordinates): AppCoords {
@@ -48,18 +50,6 @@ export class DataService {
   private metersToLongitude(value: number): number {
     return value / 111000;
   }
-
-    // if (navigator && navigator.permissions) {
-    //   checkPermission();
-    // }    
-  // checkPermission(){
-  //   navigator.permissions.query({name: 'geolocation'})
-  //       .then( result => {
-  //           if ( result.state === 'granted') {
-  //               ui.hide('permission_request');
-  //           }
-  //       });
-  // }
 
   fakeData() {
     return {

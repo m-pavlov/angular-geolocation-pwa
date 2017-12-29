@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ViewType } from '../view-type.type';
 import { AppCoords } from "../app-coords.interface";
+import { LangService } from '../lang.service';
 
 @Component({
   selector: 'app-content',
@@ -11,20 +12,36 @@ import { AppCoords } from "../app-coords.interface";
 export class ContentComponent implements OnInit {
   viewType: ViewType = 'decimal';
   position: AppCoords;
+  errorType: string;
+  currentLang: Object;
 
   constructor(
-    private srv: DataService
+    private dataService: DataService,
+    private langService: LangService
   ) { }
 
   ngOnInit() {
-    this.srv.location$.subscribe( (pos) => {
+    this.dataService.location$.subscribe( (pos: AppCoords) => {
       this.position = pos;
-      console.log(pos);
     });
-    this.srv.getLocation();
+
+    this.dataService.errors$.subscribe( (type: string) => {
+      this.errorType = type;
+    });
+    
+    this.langService.currentTranslation.subscribe( translation => 
+      this.currentLang = translation 
+    );
+
+    this.dataService.getLocation();
+
+    setInterval(() => {
+      this.dataService.getLocation();
+    }, 5000);
   }
 
-  onTypeChange(type){
+  onTypeChange(type) {
     this.viewType = type;
   }  
+
 }

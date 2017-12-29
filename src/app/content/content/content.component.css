@@ -1,16 +1,29 @@
+.title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 3.5vh;
+    line-height: 10vh;
+    background-color: var(--color-accent);
+    color:  var(--color-white);
+    box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
 .position {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 2vh 5vh 2vh;
+    margin: 0;
+    height: 60vh;
+    padding: 0 2vh;
     font-size: 4vh;
     line-height: 5vh;
-    color: #999;
+    color:  var(--color-gray);
 }
 .position dt {
     display: block;
     flex-basis: 45%;
     margin: 5vh 0;
+    height: 10vh;
     text-align: right;
 }
 .position dd {
@@ -18,13 +31,23 @@
     flex-basis: 50%;
     margin: 5vh 0;
     padding: 0;
+    height: 10vh;
 }
 .value {
-    color: #000;
+    color:  var(--color-accent);
 }
 .accuracy {
     display: block;
     margin-top: .5vh;
     font-size: 70%;
     line-height: 1;
+}
+.errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10vw;
+    height: 60vh;
+    font-size: 1.5rem;
+    color:  var(--color-error);
 }

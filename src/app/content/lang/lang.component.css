@@ -2,8 +2,8 @@
     display: flex;
     position: relative;
     padding: 0 2vh 2vh 2vh;
-    margin-top: 10vh;
-    background-color: #eee;
+    margin-top: 5vh;
+    background-color: var(--color-bg);
 }
 :host:before,
 :host:after {
@@ -12,7 +12,7 @@
     top: 0;
     width: 2vh;
     height: 1px;
-    background-color: #bbb;
+    background-color: var(--color-border);
 }
 :host:before {
     left: 0;
@@ -26,19 +26,21 @@ button {
     height: 8vh;
     border-style: solid;
     border-width: 1px;
-    border-color: #bbb transparent transparent transparent;
+    border-color: var(--color-border) transparent transparent transparent;
     border-radius: 0 0 1vh 1vh;
     background: none;
-    background-color: #eee;
+    background-color: var(--color-bg);
     font-size: 3vh;
     line-height: 8vh;
-    color: #999;
+    text-transform: uppercase;
+    color: var(--color-gray);
     outline: none;
     cursor: pointer;
     transition: border-color .3s;
 }
 .active {
-    border-color: transparent #bbb #bbb #bbb;
-    background-color: #fff;
-    color: #6aa;
+    border-color: transparent var(--color-border) var(--color-border) var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-accent);
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
 }
