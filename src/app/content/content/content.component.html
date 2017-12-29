@@ -50,7 +50,7 @@
         <span class="value">{{ position.altitude }}</span>
         <ng-container>{{ "meters" | lang: currentLang }}</ng-container>
         <span class="accuracy">&plusmn; {{ position.altitudeAccuracy }}</span>
-        {{ position }}
+        {{ position | json }}
     </dd>
     <dd *ngIf="! position.altitude" class="value">
         {{ "not available" | lang: currentLang }}
