@@ -17,12 +17,12 @@
     <dd *ngIf="position.latitude !== null">
         <span *ngIf="viewType === 'decimal'" class="value">{{ position.latitude | decimal }}</span>
         <span *ngIf="viewType === 'minutes'" class="value">{{ position.latitude | minutes }}</span>        
-        <ng-container *ngIf="position.latitude > 0">{{ "N" | lang: currentLang }}</ng-container>
-        <ng-container *ngIf="position.latitude < 0">{{ "S" | lang: currentLang }}</ng-container>        
+        <span *ngIf="position.latitude > 0">{{ "N" | lang: currentLang }}</span>
+        <span *ngIf="position.latitude < 0">{{ "S" | lang: currentLang }}</span>        
         <span *ngIf="position.accuracyLatitude !== null" class="accuracy">
             &plusmn; 
-            <ng-container *ngIf="viewType === 'decimal'">{{ position.accuracyLatitude | decimal }}</ng-container>
-            <ng-container *ngIf="viewType === 'minutes'">{{ position.accuracyLatitude | minutes }}</ng-container>
+            <span *ngIf="viewType === 'decimal'">{{ position.accuracyLatitude | decimal }}</span>
+            <span *ngIf="viewType === 'minutes'">{{ position.accuracyLatitude | minutes }}</span>
         </span>
     </dd>
     <dd *ngIf="position.latitude === null" class="value">
@@ -33,12 +33,12 @@
     <dd *ngIf="position.longitude !== null">
         <span *ngIf="viewType === 'decimal'" class="value">{{ position.longitude | decimal }}</span>
         <span *ngIf="viewType === 'minutes'" class="value">{{ position.longitude | minutes }}</span>
-        <ng-container *ngIf="position.latitude > 0">{{ "E" | lang: currentLang }}</ng-container>
-        <ng-container *ngIf="position.latitude < 0">{{ "W" | lang: currentLang }}</ng-container>        
+        <span *ngIf="position.latitude > 0">{{ "E" | lang: currentLang }}</span>
+        <span *ngIf="position.latitude < 0">{{ "W" | lang: currentLang }}</span>        
         <span *ngIf="position.accuracyLongitude !== null" class="accuracy">
             &plusmn; 
-            <ng-container *ngIf="viewType === 'decimal'">{{ position.accuracyLongitude | decimal }}</ng-container>
-            <ng-container *ngIf="viewType === 'minutes'">{{ position.accuracyLongitude | minutes }}</ng-container>
+            <span *ngIf="viewType === 'decimal'">{{ position.accuracyLongitude | decimal }}</span>
+            <span *ngIf="viewType === 'minutes'">{{ position.accuracyLongitude | minutes }}</span>
         </span>        
     </dd>
     <dd *ngIf="position.longitude === null" class="value">
@@ -48,9 +48,10 @@
     <dt>{{ "Altitude" | lang: currentLang }}</dt>
     <dd *ngIf="position.altitude">
         <span class="value">{{ position.altitude }}</span>
-        <ng-container>{{ "meters" | lang: currentLang }}</ng-container>
+        <span>{{ "meters" | lang: currentLang }}</span>
         <span class="accuracy">&plusmn; {{ position.altitudeAccuracy }}</span>
-        {{ position | json }}
+        a - {{ position.altitude }} <br>
+        b - {{ position.altitudeAccuracy }}
     </dd>
     <dd *ngIf="! position.altitude" class="value">
         {{ "not available" | lang: currentLang }}
