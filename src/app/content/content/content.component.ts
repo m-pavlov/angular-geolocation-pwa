@@ -3,6 +3,8 @@ import { DataService } from '../data.service';
 import { AppCoords } from "../app-coords.interface";
 import { LangService } from '../lang.service';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -31,7 +33,7 @@ export class ContentComponent implements OnInit {
     this.langService.currentTranslation$.subscribe( translation => 
       this.currentLang = translation 
     );
-
+alert(environment.production);
     this.dataService.getLocation();
 
     setInterval(() => {
