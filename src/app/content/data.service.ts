@@ -28,9 +28,10 @@ export class DataService {
   }
 
   private success(data: Position) {
+    let payload = this.transformData( data.coords );
 
     this.location$
-      .next( this.setAccuracy( data.coords ) );
+      .next( payload );
     this.errors$
       .next('');
   }
@@ -42,11 +43,15 @@ export class DataService {
       .next(null)
   }
 
-  private setAccuracy(data: Coordinates): AppCoords {
-    return Object.assign(data, {
+  private transformData(data: Coordinates): AppCoords {
+    return {
+      latitude: data.latitude === undefined ? null : data.latitude,
+      longitude: data.longitude === undefined ? null : data.longitude,
+      altitude: data.altitude === undefined ? null : data.altitude,
       accuracyLatitude: data.accuracy ? this.metersToLatitude(data.accuracy) : null,
       accuracyLongitude: data.accuracy ? this.metersToLongitude(data.accuracy) : null,
-    });
+      accuracyAltitude: data.altitudeAccuracy || null
+    };
   }
 
   private metersToLatitude(value: number): number {
