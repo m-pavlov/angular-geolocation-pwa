@@ -50,8 +50,11 @@
     <div class="values" *ngIf="position.altitude !== null">
         <span class="value">{{ position.altitude | decimal: true }}</span>
         <span>{{ "meters" | lang: currentLang }}</span>
+        <span *ngIf="position.accuracyAltitude !== null" class="accuracy">
+            &plusmn;
+            {{ position.accuracyAltitude }}
+        </span>
     </div>
-    
     <div class="values" *ngIf="position.altitude === null">
         <span class="value">{{ "not available" | lang: currentLang }}</span>
     </div>    
