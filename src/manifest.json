@@ -1,8 +1,8 @@
 {
-    "short_name": "Coords",
+    "short_name": "My geolocation",
     "name": "Geolocation PWA",
-    "start_url": "/",
-    "theme_color": "#f48c5b",
+    "start_url": "/angular-geolocation-pwa/",
+    "theme_color": "#6aa",
     "background_color": "#ffffff",
     "display": "standalone",
     "orientation": "portrait",

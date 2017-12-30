@@ -21,7 +21,8 @@ export class DataService {
         this.success.bind(this), 
         this.failed.bind(this), 
         {
-          enableHighAccuracy: true
+          enableHighAccuracy: true,
+          timeout: 1000
         }
       );
   }

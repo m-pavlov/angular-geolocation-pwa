@@ -37,7 +37,7 @@ export class ContentComponent implements OnInit {
 
     setInterval(() => {
       this.dataService.getLocation();
-    }, 1000);
+    }, 10000);
   }
 
   onTypeChange(type) {
