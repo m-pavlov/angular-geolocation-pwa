@@ -5,13 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DecimalPipe implements PipeTransform {
 
-  transform(value: number, isShort): string {
+  transform(value: number, isRound): string {
     const accuracy = 100 * 1000;
     let ret = null;
 
     if (value) {
-      if (isShort) {
-        ret = '' + (Math.round( value * 100 ) / 100);
+      if (isRound) {
+        ret = '' + ( Math.round( value ) );
       } else {
         let rounded = Math.round( value * accuracy) / accuracy;
         let str = rounded < 10 && rounded >= 1 ? '0' + rounded : '' + rounded;
