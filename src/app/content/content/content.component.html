@@ -48,12 +48,7 @@
 
     <div class="label">{{ "Altitude" | lang: currentLang }}</div>
     <div class="values" *ngIf="position.altitude">
-        <span class="value">{{ position.altitude }}</span>
-        <span>{{ "meters" | lang: currentLang }}</span>
-        <span  *ngIf="position.accuracyLongitude !== null" class="accuracy">
-            &plusmn; 
-            {{ position.altitudeAccuracy }}
-        </span>
+        {{ position.altitude }}
     </div>
     <div class="values" *ngIf="! position.altitude">
         <span class="value">{{ "not available" | lang: currentLang }}</span>
@@ -61,3 +56,5 @@
 </div>
 
 <app-lang></app-lang>
+
+{{ position | json }}
