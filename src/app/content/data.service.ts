@@ -17,7 +17,13 @@ export class DataService {
     }
 
     navigator.geolocation
-      .getCurrentPosition(this.success.bind(this), this.failed.bind(this));
+      .getCurrentPosition(
+        this.success.bind(this), 
+        this.failed.bind(this), 
+        {
+          enableHighAccuracy: true
+        }
+      );
   }
 
   private success(data: Position) {
