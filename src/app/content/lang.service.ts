@@ -5,14 +5,19 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class LangService {
-  currentTranslation: BehaviorSubject<Object> = new BehaviorSubject({});
-
   private translations: Object = {};
   private availableTranslations: string[] = ['en', 'ru'];
+  private storageKey: string = 'defaultLang';
+
+  currentTranslation$: BehaviorSubject<Object> = new BehaviorSubject({});
+  currentLocale$: BehaviorSubject<string> = new BehaviorSubject(this.availableTranslations[0]);
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) { 
+    const defaultLang = localStorage.getItem(this.storageKey);
+    this.setTranslation(defaultLang || this.availableTranslations[0]);
+  }
   
   setTranslation(locale: string) {
     if (this.translations[locale]) {
@@ -31,7 +36,9 @@ export class LangService {
   }
 
   private emit(locale: string) {
-    this.currentTranslation.next(this.translations[locale]);
+    localStorage.setItem(this.storageKey, locale);
+    this.currentTranslation$.next(this.translations[locale]);
+    this.currentLocale$.next(locale);
   }
 
   private loadTranslation(locale: string) {

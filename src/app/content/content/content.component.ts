@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { ViewType } from '../view-type.type';
 import { AppCoords } from "../app-coords.interface";
 import { LangService } from '../lang.service';
 
@@ -10,7 +9,7 @@ import { LangService } from '../lang.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  viewType: ViewType = 'decimal';
+  viewType: string;
   position: AppCoords;
   errorType: string;
   currentLang: Object;
@@ -29,7 +28,7 @@ export class ContentComponent implements OnInit {
       this.errorType = type;
     });
     
-    this.langService.currentTranslation.subscribe( translation => 
+    this.langService.currentTranslation$.subscribe( translation => 
       this.currentLang = translation 
     );
 

@@ -8,23 +8,20 @@ import { LangService } from '../lang.service';
 })
 export class LangComponent implements OnInit {
   langs: string[] = this.langService.getAvailableTranslations();
-  activeLang: string = this.langs[0];
+  activeLang: string;
 
   constructor(
     private langService: LangService
   ) { }
 
   ngOnInit() {
-    this.emit();
+    this.langService.currentLocale$.subscribe( lang => {
+      this.activeLang = lang;
+    });
   }
 
   select(lang: string){
-    this.activeLang = lang;
-    this.emit();
-  }
-
-  emit() {
-    this.langService.setTranslation(this.activeLang);
+    this.langService.setTranslation(lang);
   }
 
 }

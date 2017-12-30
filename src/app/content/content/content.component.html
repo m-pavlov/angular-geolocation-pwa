@@ -1,5 +1,6 @@
 <div class="title">
     {{ "My coordinates" | lang: currentLang }}
+    <a href="https://github.com/m-pavlov/angular-geolocation-pwa" class="github" target="_blank">github</a>
 </div>
 <app-view-type (choose)="onTypeChange($event)"></app-view-type>
 
@@ -9,12 +10,12 @@
     <div *ngIf="errorType === 'permission'">{{ "Please, allow the browser to know your location" | lang: currentLang }}</div>
 </div>
 
-<dl
+<div
     *ngIf="position && ! errorType"
     class="position"
 >
-    <dt>{{ "Latitude" | lang: currentLang }}</dt> 
-    <dd *ngIf="position.latitude !== null">
+    <div class="label">{{ "Latitude" | lang: currentLang }}</div> 
+    <div class="values" *ngIf="position.latitude !== null">
         <span *ngIf="viewType === 'decimal'" class="value">{{ position.latitude | decimal }}</span>
         <span *ngIf="viewType === 'minutes'" class="value">{{ position.latitude | minutes }}</span>        
         <span *ngIf="position.latitude > 0">{{ "N" | lang: currentLang }}</span>
@@ -24,13 +25,13 @@
             <span *ngIf="viewType === 'decimal'">{{ position.accuracyLatitude | decimal }}</span>
             <span *ngIf="viewType === 'minutes'">{{ position.accuracyLatitude | minutes }}</span>
         </span>
-    </dd>
-    <dd *ngIf="position.latitude === null" class="value">
-        {{ "not available" | lang: currentLang }}
-    </dd>
+    </div>
+    <div class="values" *ngIf="position.latitude === null">
+        <span class="value">{{ "not available" | lang: currentLang }}</span>
+    </div>
 
-    <dt>{{ "Longitude" | lang: currentLang }}</dt>
-    <dd *ngIf="position.longitude !== null">
+    <div class="label">{{ "Longitude" | lang: currentLang }}</div>
+    <div class="values" *ngIf="position.longitude !== null">
         <span *ngIf="viewType === 'decimal'" class="value">{{ position.longitude | decimal }}</span>
         <span *ngIf="viewType === 'minutes'" class="value">{{ position.longitude | minutes }}</span>
         <span *ngIf="position.latitude > 0">{{ "E" | lang: currentLang }}</span>
@@ -40,23 +41,23 @@
             <span *ngIf="viewType === 'decimal'">{{ position.accuracyLongitude | decimal }}</span>
             <span *ngIf="viewType === 'minutes'">{{ position.accuracyLongitude | minutes }}</span>
         </span>        
-    </dd>
-    <dd *ngIf="position.longitude === null" class="value">
-        {{ "not available" | lang: currentLang }}
-    </dd>
+    </div>
+    <div class="values" *ngIf="position.longitude === null">
+        <span class="value">{{ "not available" | lang: currentLang }}</span>
+    </div>
 
-    <dt>{{ "Altitude" | lang: currentLang }}</dt>
-    <dd *ngIf="position.altitude">
+    <div class="label">{{ "Altitude" | lang: currentLang }}</div>
+    <div class="values" *ngIf="position.altitude">
         <span class="value">{{ position.altitude }}</span>
         <span>{{ "meters" | lang: currentLang }}</span>
         <span  *ngIf="position.accuracyLongitude !== null" class="accuracy">
             &plusmn; 
             {{ position.altitudeAccuracy }}
         </span>
-    </dd>
-    <dd *ngIf="! position.altitude" class="value">
-        {{ "not available" | lang: currentLang }}
-    </dd>    
-</dl>
+    </div>
+    <div class="values" *ngIf="! position.altitude">
+        <span class="value">{{ "not available" | lang: currentLang }}</span>
+    </div>    
+</div>
 
 <app-lang></app-lang>

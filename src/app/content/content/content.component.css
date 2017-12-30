@@ -8,10 +8,20 @@
     color:  var(--color-white);
     box-shadow: 0 0 5px rgba(0,0,0,.5);
 }
+.github {
+    position: absolute;
+    right: 1vh;
+    bottom: 1vh;
+    font-size: 1rem;
+    line-height: 1;
+    color:  var(--color-white);
+    opacity: .7;
+}
 .position {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 0;
     height: 60vh;
     padding: 0 2vh;
@@ -19,14 +29,14 @@
     line-height: 5vh;
     color:  var(--color-gray);
 }
-.position dt {
+.position .label {
     display: block;
     flex-basis: 45%;
     margin: 5vh 0;
     height: 10vh;
     text-align: right;
 }
-.position dd {
+.position .values {
     display: block;
     flex-basis: 50%;
     margin: 5vh 0;
