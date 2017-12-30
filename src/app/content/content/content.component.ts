@@ -21,6 +21,8 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.location$.subscribe( (pos: AppCoords) => {
+      alert(pos.altitude);
+      alert(JSON.stringify(pos));      
       this.position = pos;
     });
 

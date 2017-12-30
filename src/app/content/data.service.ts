@@ -44,8 +44,6 @@ export class DataService {
   }
 
   private transformData(data: Coordinates): AppCoords {
-    alert(data.altitude);
-    alert(data);
     return {
       latitude: data.latitude === undefined ? null : data.latitude,
       longitude: data.longitude === undefined ? null : data.longitude,
