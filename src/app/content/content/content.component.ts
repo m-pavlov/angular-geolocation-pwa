@@ -33,7 +33,7 @@ export class ContentComponent implements OnInit {
     this.langService.currentTranslation$.subscribe( translation => 
       this.currentLang = translation 
     );
-alert(environment.production);
+
     this.dataService.getLocation();
 
     setInterval(() => {
