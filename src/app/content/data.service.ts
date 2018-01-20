@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { AppCoords } from "./app-coords.interface";
+import { AppCoords } from './app-coords.interface';
 
 @Injectable()
 export class DataService {
@@ -11,15 +11,15 @@ export class DataService {
 
   constructor() { }
 
-  getLocation(){
+  getLocation() {
     if ( ! navigator.geolocation ) {
       this.errors$.next('not-available');
     }
 
     navigator.geolocation
       .getCurrentPosition(
-        this.success.bind(this), 
-        this.failed.bind(this), 
+        this.success.bind(this),
+        this.failed.bind(this),
         {
           enableHighAccuracy: true,
           timeout: 5000
@@ -28,7 +28,7 @@ export class DataService {
   }
 
   private success(data: Position) {
-    let payload = this.transformData( data.coords );
+    const payload = this.transformData( data.coords );
 
     this.location$
       .next( payload );
@@ -38,9 +38,9 @@ export class DataService {
 
   private failed(e) {
     this.errors$
-      .next(e.code === 1 ? 'permission' : 'failed');    
+      .next(e.code === 1 ? 'permission' : 'failed');
     this.location$
-      .next(null)
+      .next(null);
   }
 
   private transformData(data: Coordinates): AppCoords {

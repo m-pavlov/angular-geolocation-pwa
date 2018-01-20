@@ -1,0 +1,15 @@
+{
+    "My coordinates": "My coordinates",
+    "Sorry, geolocation is not available on your device": "Sorry, geolocation is not available on your device",
+    "Sorry, we can't get your geolocation": "Sorry, we can't get your geolocation",
+    "Please, allow the browser to know your location": "Please, allow the browser to know your location",
+    "Latitude": "Latitude",
+    "Longitude": "Longitude",
+    "Altitude": "Altitude",
+    "N": "N",
+    "S": "S",
+    "E": "E",
+    "W": "W",
+    "meters": "meters",
+    "not available": "not available"
+}

@@ -23,10 +23,10 @@ export class MinutesPipe implements PipeTransform {
     return ret;
   }
 
-  toStr(value: number, isSeconds?: boolean) : string {
+  toStr(value: number, isSeconds?: boolean): string {
     let int = ('' + value).split('.')[0];
 
-    if (int.length === 1 && value >=1 ) {
+    if (int.length === 1 && value >= 1 ) {
       int = int.padStart(2, '0');
     }
     let decimal = ('' + value).split('.')[1];

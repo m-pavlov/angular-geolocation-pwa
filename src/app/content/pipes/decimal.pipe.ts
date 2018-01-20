@@ -13,9 +13,9 @@ export class DecimalPipe implements PipeTransform {
       if (isRound) {
         ret = '' + ( Math.round( value ) );
       } else {
-        let rounded = Math.round( value * accuracy) / accuracy;
-        let str = rounded < 10 && rounded >= 1 ? '0' + rounded : '' + rounded;
-  
+        const rounded = Math.round( value * accuracy) / accuracy;
+        const str = rounded < 10 && rounded >= 1 ? '0' + rounded : '' + rounded;
+
         ret = str.padEnd(8, '0');
       }
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { AppCoords } from "../app-coords.interface";
+import { AppCoords } from '../app-coords.interface';
 import { LangService } from '../lang.service';
 
 import { environment } from '../../../environments/environment';
@@ -29,9 +29,9 @@ export class ContentComponent implements OnInit {
     this.dataService.errors$.subscribe( (type: string) => {
       this.errorType = type;
     });
-    
-    this.langService.currentTranslation$.subscribe( translation => 
-      this.currentLang = translation 
+
+    this.langService.currentTranslation$.subscribe( translation =>
+      this.currentLang = translation
     );
 
     this.dataService.getLocation();
@@ -43,6 +43,6 @@ export class ContentComponent implements OnInit {
 
   onTypeChange(type) {
     this.viewType = type;
-  }  
+  }
 
 }

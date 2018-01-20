@@ -9,7 +9,7 @@ export class ViewTypeComponent implements OnInit {
   @Output() choose: EventEmitter<string> = new EventEmitter();
   type: string;
 
-  private storageKey: string = 'viewType';
+  private storageKey = 'viewType';
 
   constructor() { }
 
@@ -25,7 +25,7 @@ export class ViewTypeComponent implements OnInit {
     this.emit();
   }
 
-  emit(){
+  emit() {
     this.choose.next(this.type);
   }
 

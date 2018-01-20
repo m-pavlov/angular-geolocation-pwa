@@ -26,5 +26,5 @@ describe('Data Service unit tests', () => {
     const actual = service.metersToLongitude(111);
 
     expect(actual).toBe(expected);
-  })
+  });
 });

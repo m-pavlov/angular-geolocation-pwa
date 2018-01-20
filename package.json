@@ -9,9 +9,14 @@
     "test": "ng test",
     "pre-commit-test": "ng test --watch=false",
     "lint": "ng lint",
+    "pre-commit-lint": "ng lint --fix",
     "e2e": "ng e2e"
   },
-  "pre-commit": ["pre-commit-test", "build"],
+  "pre-commit": [
+      "pre-commit-test", 
+      "pre-commit-lint", 
+      "build"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.1.2",

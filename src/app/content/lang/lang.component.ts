@@ -20,7 +20,7 @@ export class LangComponent implements OnInit {
     });
   }
 
-  select(lang: string){
+  select(lang: string) {
     this.langService.setTranslation(lang);
   }
 

@@ -20,7 +20,7 @@ describe('ContentComponent', () => {
       imports: [
         HttpClientModule
       ],
-      declarations: [ 
+      declarations: [
         ContentComponent,
         LangPipe,
         DecimalPipe,

@@ -18,8 +18,8 @@ import { LangPipe } from './pipes/lang.pipe';
     HttpClientModule
   ],
   declarations: [
-    ContentComponent, 
-    LangComponent, 
+    ContentComponent,
+    LangComponent,
     ViewTypeComponent, DecimalPipe, MinutesPipe, LangPipe
   ],
   providers: [
