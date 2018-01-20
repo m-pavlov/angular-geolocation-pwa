@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "pre-commit": ["pre-commit-test"],
+  "pre-commit": ["pre-commit-test", "build"],
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.1.2",
