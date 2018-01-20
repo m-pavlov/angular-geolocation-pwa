@@ -27,4 +27,12 @@ describe('Data Service unit tests', () => {
 
     expect(actual).toBe(expected);
   });
+
+  it('#metersToLatitude(1000) should return 0.051731', () => {
+    const expected = Math.round(0.051731 * 1000 * 1000);
+    const actual = Math.round(service.metersToLatitude(1000) * 1000 * 1000);
+
+    expect(actual).toBe(expected);
+  });
+
 });
