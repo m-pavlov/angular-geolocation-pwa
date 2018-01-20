@@ -13,3 +13,18 @@ describe('DataService', () => {
     expect(service).toBeTruthy();
   }));
 });
+
+describe('Data Service unit tests', () => {
+  let service;
+
+  beforeEach(() => {
+    service = new DataService();
+  });
+
+  it('#metersToLongitude(111) should return 0.001', () => {
+    const expected = 0.001;
+    const actual = service.metersToLongitude(111);
+
+    expect(actual).toBe(expected);
+  })
+});

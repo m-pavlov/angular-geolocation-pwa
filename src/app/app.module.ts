@@ -15,7 +15,7 @@ import { ContentModule } from './content/content.module';
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    ContentModule
+    ContentModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
