@@ -35,6 +35,6 @@ export class MinutesPipe implements PipeTransform {
       decimal = decimal.padEnd(2, '0');
     }
 
-    return isSeconds ? `${int}.${decimal}` : int;
+    return isSeconds && decimal ? `${int}.${decimal}` : int;
   }
 }

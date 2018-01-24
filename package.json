@@ -1,6 +1,6 @@
 {
   "name": "geolocation-pwa",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -14,8 +14,7 @@
   },
   "pre-commit": [
       "pre-commit-test", 
-      "pre-commit-lint", 
-      "build"
+      "pre-commit-lint"
   ],
   "private": true,
   "dependencies": {

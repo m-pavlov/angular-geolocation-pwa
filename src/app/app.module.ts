@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { AppComponent } from './app.component';
+import { AppComponent } from '@app/app.component';
 
-import { environment } from '../environments/environment';
-import { ContentModule } from './content/content.module';
+import { environment } from '@env/environment';
+import { ContentModule } from '@app/content/content.module';
 
 @NgModule({
   declarations: [

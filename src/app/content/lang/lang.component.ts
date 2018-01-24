@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { LangService } from '../lang.service';
+import { LangService } from '@app/content/lang.service';
 
 @Component({
   selector: 'app-lang',

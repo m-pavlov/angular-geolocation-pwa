@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { AppCoords } from './app-coords.interface';
+import { AppCoords } from '@app/content/app-coords.interface';
 
 @Injectable()
 export class DataService {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { AppCoords } from '../app-coords.interface';
-import { LangService } from '../lang.service';
+import { DataService } from '@app/content/data.service';
+import { AppCoords } from '@app/content/app-coords.interface';
+import { LangService } from '@app/content/lang.service';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-content',
