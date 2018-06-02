@@ -8,11 +8,7 @@
       "updateMode": "prefetch",
       "urls": [
         "https://m-pavlov.github.io/angular-geolocation-pwa/favicon.ico",
-        "https://m-pavlov.github.io/angular-geolocation-pwa/index.html",
-        "https://m-pavlov.github.io/angular-geolocation-pwa/inline.318b50c57b4eba3d437b.bundle.js",
-        "https://m-pavlov.github.io/angular-geolocation-pwa/main.98c3adfb1ad696184b13.bundle.js",
-        "https://m-pavlov.github.io/angular-geolocation-pwa/polyfills.fb8ad884215c65546efb.bundle.js",
-        "https://m-pavlov.github.io/angular-geolocation-pwa/styles.ac89bfdd6de82636b768.bundle.css"
+        "https://m-pavlov.github.io/angular-geolocation-pwa/index.html"
       ],
       "patterns": []
     },
@@ -54,17 +50,11 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://m-pavlov.github.io/angular-geolocation-pwa/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/android-icon-144x144.png": "08e7efc0c3bcafb147a752df5d964832d6c6bf25",
-    "https://m-pavlov.github.io/angular-geolocation-pwa/main.98c3adfb1ad696184b13.bundle.js": "4552c6ae3ace292680f59f17a2c234393068d5c6",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/android-icon-192x192.png": "5a74c986cfafb6f3549f92100346ffd3cee08088",
-    "https://m-pavlov.github.io/angular-geolocation-pwa/polyfills.fb8ad884215c65546efb.bundle.js": "5f49131c0c147a20f91b1e77814434e0c77bd3dc",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/android-icon-36x36.png": "a29a52478c2c0355eebf2034ee43bbef3958e182",
-    "https://m-pavlov.github.io/angular-geolocation-pwa/styles.ac89bfdd6de82636b768.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/android-icon-48x48.png": "d825419b53574eaeffeeb1f12752f92ba1473b44",
-    "https://m-pavlov.github.io/angular-geolocation-pwa/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/android-icon-72x72.png": "f4430aec64dbf0fae83601f210582e53e70827f5",
-    "https://m-pavlov.github.io/angular-geolocation-pwa/index.html": "1e3c3a9bdf2a8985a075bb2f7a4d2dd514898c2f",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/android-icon-96x96.png": "39d5c5fed2c3d76dc280176325a5ea14ec31dfc3",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/apple-icon-114x114.png": "1f61d241a1edc355ddafb91e337d0c395532ac33",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/apple-icon-120x120.png": "7bcaea5a43ef52aaff33468718453fb271aafccc",
@@ -86,6 +76,26 @@
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/ms-icon-310x310.png": "e4c21b233ffa1daa65b82d3e10151bff29c8153d",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/icons/ms-icon-70x70.png": "09e377df011049faf245b57b2514d917c1734f30",
     "https://m-pavlov.github.io/angular-geolocation-pwa/assets/locale/en.json": "ae9052061580ce5551ec223eecf081af58e710f8",
-    "https://m-pavlov.github.io/angular-geolocation-pwa/assets/locale/ru.json": "6fd3c482a0096719523228e4c0a5cbfe62d203db"
-  }
+    "https://m-pavlov.github.io/angular-geolocation-pwa/assets/locale/ru.json": "6fd3c482a0096719523228e4c0a5cbfe62d203db",
+    "https://m-pavlov.github.io/angular-geolocation-pwa/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://m-pavlov.github.io/angular-geolocation-pwa/index.html": "2b828d9ccec562eb1e7e8d1591dfbf180f899f06"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*\\.[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^\\/]*__[^\\/]*\\/.*$"
+    }
+  ]
 }
